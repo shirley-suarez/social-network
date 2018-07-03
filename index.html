@@ -1,66 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="Refresh" content="3.5;url=index_1.html">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-  <link rel="stylesheet" href="css/main.css">
-
+  <link rel="stylesheet" href="css/animation.css">
   <title>Red Social</title>
 </head>
 <body>
-    <nav>
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo center">Logo  </a>
-        </div>
-      </nav>
-            
 
-<div class="container col s6">
+  <div class="row">
+    <div class="col s12">    
+      <h1>Red Social</h1>
+    </div>
+  </div>
 
-    <div class="row centrar">
-      <form class="col s8 offset-s2 z-depth-1">
-        <div class="row">
-          <div class="input-field col s12">
-            <i class="material-icons prefix">account_circle</i>
-            <input id="icon_name" type="text" placeholder="Name" class="validate">
-            <label for="icon_name"></label>
-          </div>
-          <div class="input-field col s12">
-            <i class="material-icons prefix">email</i>
-            <input id="icon_email" type="email" placeholder="Email" class="validate">
-            <label for="icon_email" ></label>
-          </div>
-          <div class="input-field col s12">
-            <i class="material-icons prefix">https</i>
-            <input id="icon_password" type="password" placeholder="Password" class="validate">
-            <label for="icon_password"></label>
-          </div>
-          <div class="input-field col s12">
-              <i class="material-icons prefix">https</i>
-              <input id="icon_password-2" type="password" placeholder="Confirm password" class="validate">
-              <label for="icon_password"></label>
-            </div>
-          <div class="col s12">
-              <a href="views/content.html" class="waves-effect waves-light btn col s12 start" >Sing Up</a>
-              <a href="views/singin.html" class="waves-effect waves-light btn col s12 start">Log In</a>
-              <div class="buttons" id="buttons">
-                <button type="button" name="button" id="google" class="waves-effect waves-light btn col s12 start">Login with Google</button>
-                <!-- <button type="button" name="button" id="facebook" class="waves-effect waves-light btn col s12 start">Login with Facebook</button> -->
-          </div>
-        </div>
-      </form>
-    </div>  
-
-
-</div>
-<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-<script src="js/autenticacion.js"></script>
-<script src="js/data.js"></script>
+  <div class="loading-wrap">
+    <div class="triangle1"></div>
+    <div class="triangle2"></div>
+    <div class="triangle3"></div>
+  </div>
 </body>
 </html>

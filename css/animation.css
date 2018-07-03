@@ -99,3 +99,10 @@ animation-delay: 1.2s;
 0% {border-bottom-color: #eee;}
 100%{border-bottom-color: #67cbf0;}
 }
+
+
+h1{
+  color: #eee;
+  text-align: center;
+  margin-top: 20%;
+}

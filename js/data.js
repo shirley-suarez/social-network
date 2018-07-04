@@ -1,12 +1,25 @@
 // Imputs
-const inputName = document.getElementById("icon-name");
-const inputEmail = document.getElementById('icon-email');
-const inputPassword = documet.getElementById('icon-password')
-const inputPassword2 = documetn.getElementById('icon-password-2');
+const inputName = document.getElementById("icon_name");
+const inputEmail = document.getElementById('icon_email');
+const inputPassword = document.getElementById('icon_password')
+const inputPassword2 = document.getElementById('icon_password-2');
 
 
 // botons
 const google   = document.getElementById('google');
 const login = document.getElementById('login');
 const singup = document.getElementById('singup');
+
+
+google.addEventListener("click", getProvider )
+
+
+singup.addEventListener("click", event =>{
+  window.social.crearCuenta(
+    inputName.value,
+    inputEmail.value,
+    inputPassword.value,
+    inputPassword2.value
+  );
+})
 

@@ -3,6 +3,7 @@ const inputName = document.getElementById("icon_name");
 const inputEmail = document.getElementById('icon_email');
 const inputPassword = document.getElementById('icon_password')
 const inputPassword2 = document.getElementById('icon_password-2');
+const modalBox = document.getElementById('modal1');
 
 
 // botons
@@ -11,7 +12,7 @@ const login = document.getElementById('login');
 const singup = document.getElementById('singup');
 
 
-google.addEventListener("click", getProvider )
+google.addEventListener("click", getProvider );
 
 
 singup.addEventListener("click", event =>{
@@ -19,7 +20,7 @@ singup.addEventListener("click", event =>{
     inputName.value,
     inputEmail.value,
     inputPassword.value,
-    inputPassword2.value
+    // inputPassword2.value
   );
 })
-
+ 

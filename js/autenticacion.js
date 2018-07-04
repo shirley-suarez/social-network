@@ -71,7 +71,7 @@ const auth = provider => {
     console.log(result);
     const token = result.credential.accessToken;
     const user = result.user;
-    // showNewsFeed(user); cambia a contenido
+    showNewsFeed(user);
   }).catch((error) => {
     console.log(error);
     const errorCode = error.code;
@@ -87,4 +87,8 @@ const logout = () => {
   }).catch(function(error) {
     // An error happened.
   });
+}
+
+showNewsFeed = (user) => {
+  location.href='../views/content.html';
 }

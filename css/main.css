@@ -12,3 +12,10 @@ nav{
   margin-top: 5%;
 }
 
+#nameUser{
+  text-align: right;
+}
+
+.background-black {
+  background-color: black
+}

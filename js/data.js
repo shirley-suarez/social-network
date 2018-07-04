@@ -16,11 +16,18 @@ google.addEventListener("click", getProvider );
 
 
 singup.addEventListener("click", event =>{
+  let name = inputName.value;
+  let email = inputEmail.value;
+  let pass=  inputPassword.value;
+  localStorage.clear();
+  localStorage.setItem("name", name);
+  localStorage.setItem("email", email);
+  localStorage.setItem("pass", pass);
   window.social.crearCuenta(
-    inputName.value,
-    inputEmail.value,
-    inputPassword.value,
+    name,
+    email,
+    pass
     // inputPassword2.value
   );
 })
- 
+

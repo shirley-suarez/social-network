@@ -9,39 +9,6 @@
 };
 firebase.initializeApp(config);
 
-
-// const getProvider = () => {
-// provider = new firebase.auth.GoogleAuthProvider();
-//  auth(provider);
-// }
-
-// const auth = provider => {
-//   firebase.auth().signInWithPopup(provider).then((result) => {
-//     console.log(result);
-//     const token = result.credential.accessToken;
-//     const user = result.user;
-
-//     showNewsFeed(user);
-//   }).catch((error) => {
-//     console.log(error);
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//     const email = error.email;
-//     const credential = error.credential;
-//   });
-// }
-
-// const logout = () => {
-//   firebase.auth().signOut().then(function() {
-//     // Sign-out successful.
-//   }).catch(function(error) {
-//     // An error happened.
-//   });
-// }
-
-// google.addEventListener("click", getProvider);
-
-
 const getProvider = () => {
   let provider;
   switch (event.target.id) {
@@ -91,4 +58,9 @@ const logout = () => {
 
 showNewsFeed = (user) => {
   location.href='../views/content.html';
+  user = JSON.stringify(user);
+  localStorage.setItem("resultado",user);
+
+  // para recuperar el objeto
+  // let regreso =  JSON.parse(localStorage.getItem("resultado"));
 }

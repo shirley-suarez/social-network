@@ -57,7 +57,7 @@ const logout = () => {
 }
 
 showNewsFeed = (user) => {
-  location.href='../views/content.html';
+  location.href='../views/muro.html';
   user = JSON.stringify(user);
   localStorage.setItem("resultado",user);
 

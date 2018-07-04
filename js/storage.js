@@ -12,3 +12,13 @@ if (typeof(Storage) !== "undefined") {
 
 // // para recuperar esos datos guardados
 // localStorage.getItem("name");
+
+
+
+printUserNav = () => {
+  let returnUser = JSON.parse(localStorage.getItem("resultado"));
+  console.log(returnUser);
+}
+
+
+printUserNav();

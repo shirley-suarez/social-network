@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Social Bikers</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <body>
+    <nav class="nav-extended background-black">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Logo</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+          <i class="material-icons">menu</i>
+          </a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+          <li><a href="#!">Second Link</a></li>
+          <li><a class="subheader">Subheader</a></li>
+          <li><a class="waves-effect" href="#!">log out</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <ul id="mobile-demo" class="sidenav">
+      <li>
+        <div class="user-view">
+          <div class="background">
+            <img src="https://diariopresenterm.blob.core.windows.net.optimalcdn.com/images/2017/07/28/prpr_38_biker01-focus-0-0-1140-570.jpg">
+          </div>
+          <a href="#user"><img class="circle" src="https://pbs.twimg.com/profile_images/883322378318729216/z2xz6wn8_400x400.jpg"></a>
+          <a href="#name"><span class="white-text name">Jamie Doe</span></a>
+          <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+        </div>
+      </li>
+      <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+      <li><a href="#!">Second Link</a></li>
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">Subheader</a></li>
+      <li><a class="waves-effect" href="#!">log out</a></li>
+    </ul>
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">mode_edit</i>
+            <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+            <label for="icon_prefix2">First Name</label>
+          </div>
+          <div class="col s6">
+            <button class="btn waves-effect waves-light background-black" type="submit" name="action">Publicar
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

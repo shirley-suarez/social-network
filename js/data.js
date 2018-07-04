@@ -7,7 +7,7 @@ const modalBox = document.getElementById('modal1');
 
 
 // botons
-const google   = document.getElementById('google');
+const google = document.getElementById('google');
 const login = document.getElementById('login');
 const singup = document.getElementById('singup');
 
@@ -30,4 +30,3 @@ singup.addEventListener("click", event =>{
     // inputPassword2.value
   );
 })
-

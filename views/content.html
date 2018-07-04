@@ -11,13 +11,34 @@
   <title>Red Social</title>
 </head>
 <body>
-    <nav>
+    <!-- <nav>
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo center">Logo  </a>
+          <a href="#" class="brand-logo center">Logo </a> <span id="nameUser">nombre</span>
+        </div>
+      </nav>   -->
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">Logo</a>
+          <ul id="nav-mobile" class="right hide-off-med-and-down">
+              <li><a id="nameUser">Nombre: </a></li>
+            <div class="user-view">
+              <div class="background">
+                <img src="">
+              </div>
+          </ul>
         </div>
       </nav>
-    <h1>Hola Contenido</h1>            
 
 
+    <h1>Hola Contenido</h1>  
+              
+
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-database.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script src="../js/autenticacion.js"></script>
+    <!-- <script src="../js/data.js"></script> -->
+    <script src="../js/main.js"></script>
 </body>
 </html>

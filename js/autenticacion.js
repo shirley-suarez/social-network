@@ -60,7 +60,6 @@ showNewsFeed = (user) => {
   location.href='../views/muro.html';
   user = JSON.stringify(user);
   localStorage.setItem("resultado",user);
-
   // para recuperar el objeto
   // let regreso =  JSON.parse(localStorage.getItem("resultado"));
 }

@@ -98,20 +98,14 @@ printUserResult = (userReturn) => {
   printName.innerHTML = nameResult;
   printEmail.innerHTML = emailResult;
   imageUser.innerHTML = `<a id="imagen-usuario" href="#user"><img class="circle" src="${imageUserReturn}"></a>`
-<<<<<<< HEAD
 }
 
-printUserResult();
 
+// killSesion = () => {
+//   alert('Bye');
+// }
 
+// buttonLogout.addEventListener('click', killSesion);
+// }
 
-killSesion = () => {
-  alert('Bye');
-}
-
-buttonLogout.addEventListener('click', killSesion);
-=======
-}
-
-printUserResult(userReturn);
->>>>>>> origin/master
+// printUserResult(userReturn);

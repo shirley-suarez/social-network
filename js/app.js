@@ -110,3 +110,6 @@ printUserResult(userReturn);
 
 // buttonLogout.addEventListener('click', killSesion);
 // }
+
+printUserResult(userReturn);
+  

@@ -5,43 +5,54 @@ document.addEventListener('DOMContentLoaded', function() {
 
 let database = firebase.database();
 
-var contador = new Date().getTime();
-const objDB={
-  users:[]
+let objDB={
+  posts:[]
 }
+
+let userReturn = JSON.parse(localStorage.getItem("resultado"));
+var contador = new Date().getTime();
 
 var formulario = document.getElementById("crear-post")
 
-const extraerDatosForm = (e) => {
-  e.preventDefault();
+const createObjPost = (userReturn) => {
+  console.log(userReturn);
   let date = `${new Date()}`;
   console.log(date);
-  const user =  { "id": contador,
-                "nombre" : document.getElementById("nombre").innerHTML,
-                "correo" : document.getElementById("correo").innerHTML,
-                "Fecha" : date,
-                "mensaje" : document.getElementById("mensaje").value
+  const user =  { "idPerfil": userReturn.uid,
+                "nombre" : userReturn.displayName,
+                "correo" : userReturn.email,
+                "FotoURL": userReturn.photoURL,
+                "mensaje" : {
+                  "idPost": contador,
+                  "Fecha" : date,
+                  "like" : 0,
+                  "textMensaje" : document.getElementById("mensaje").value
+                }
               }
   console.log(user);
-  objDB.users.push(user)
+  objDB.posts.push(user)
   contador++;
-  crearJsonNuevaEmpresa(objDB);
+  crearJsonNuevoPost(objDB);
 }
 
-formulario.addEventListener("submit",extraerDatosForm);
+formulario.addEventListener("submit",() => {
+  event.preventDefault();
+  console.log("HOLA");
+  createObjPost(userReturn);
+  }
+);
 
-const crearJsonNuevaEmpresa = (users) => {
-  // console.log(users);
-  database.ref("/").set(users);
+const crearJsonNuevoPost = (posts) => {
+  database.ref("/").set(posts);
 }
 
 
 const mostrarPost = () => {
   //Leer datos en BD:
-  database.ref('/users').on('value',(snapshot) => {
+  database.ref('/posts').on('value',(snapshot) => {
     let user= snapshot.val();
-    // console.log(user);
-    objDB.users = user;
+    console.log(user);
+    objDB.posts = user;
     crearPostInDom(user);
   })
 }
@@ -58,12 +69,12 @@ const crearPostInDom = (posts) => {
                         <div class="card black">
                           <div class="card-content white-text">
                             <span class="card-title">${post.nombre}</span>
-                            <p>${post.mensaje}.</p>
-                            <span>${post.Fecha}</span>
+                            <span class="fz-10 c-dorado">${post.mensaje.Fecha}</span>
+                            <p class="fz-16">${post.mensaje.textMensaje}</p>
                             </div>
                             <div class="card-action">
                               <a href="#">Editar</a>
-                              <a href="#">Eliminar</a>
+                              <a href="#" data-id-post="${post.mensaje.idPost}">Eliminar</a>
                             </div>
                           </div>
                         </div>
@@ -73,21 +84,17 @@ const crearPostInDom = (posts) => {
 }
 
 
-printUserResult = () => {
+printUserResult = (userReturn) => {
   let printName = document.getElementById('nombre');
   let printEmail = document.getElementById('correo');
   let imageUser = document.getElementById('imagen-usuario')
-  let userReturn = JSON.parse(localStorage.getItem("resultado"));
   let nameResult = userReturn.displayName;
   let emailResult = userReturn.email;
-  let imageUserReturn = userReturn.photoURL  ;
-  console.log(userReturn);
+  let imageUserReturn = userReturn.photoURL;
 
   printName.innerHTML = nameResult;
   printEmail.innerHTML = emailResult;
   imageUser.innerHTML = `<a id="imagen-usuario" href="#user"><img class="circle" src="${imageUserReturn}"></a>`
-
-
 }
 
-printUserResult();
+printUserResult(userReturn);

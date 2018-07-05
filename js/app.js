@@ -36,6 +36,7 @@ const createObjPost = (userReturn) => {
   objDB.posts.unshift(user)
   contador++;
   crearJsonNuevoPost(objDB);
+  document.getElementById("mensaje").value = " ";
 
 }
 

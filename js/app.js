@@ -33,9 +33,10 @@ const createObjPost = (userReturn) => {
                 }
               }
   console.log(user);
-  objDB.posts.push(user)
+  objDB.posts.unshift(user)
   contador++;
   crearJsonNuevoPost(objDB);
+
 }
 
 formulario.addEventListener("submit",() => {
@@ -63,9 +64,11 @@ const mostrarPost = () => {
 mostrarPost();
 
 const crearPostInDom = (posts) => {
+ // let containerPost= document.getElementById('container-posts').value = " ";
+
   var plantillaFinal = "";
   // let plantilla = ""
-  const containerPost= document.getElementById('container-posts')
+  let containerPost= document.getElementById('container-posts');
   posts.forEach(function (post) {
   plantillaFinal += `<div class="row">
                       <div class="col s12">
@@ -83,7 +86,8 @@ const crearPostInDom = (posts) => {
                         </div>
                       </div>`
   });
-  containerPost.insertAdjacentHTML("beforeend" ,plantillaFinal);
+
+  containerPost.innerHTML = plantillaFinal;
 }
 
 

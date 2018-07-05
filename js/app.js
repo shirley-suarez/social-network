@@ -4,10 +4,13 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 let database = firebase.database();
+let buttonLogout =document.getElementById('logout');
 
 let objDB={
   posts:[]
 }
+// console.log(objDB)
+var contador = new Date().getTime();
 
 let userReturn = JSON.parse(localStorage.getItem("resultado"));
 var contador = new Date().getTime();
@@ -80,7 +83,7 @@ const crearPostInDom = (posts) => {
                         </div>
                       </div>`
   });
-  containerPost.innerHTML = plantillaFinal;
+  containerPost.insertAdjacentHTML("beforeend" ,plantillaFinal);
 }
 
 
@@ -95,6 +98,20 @@ printUserResult = (userReturn) => {
   printName.innerHTML = nameResult;
   printEmail.innerHTML = emailResult;
   imageUser.innerHTML = `<a id="imagen-usuario" href="#user"><img class="circle" src="${imageUserReturn}"></a>`
+<<<<<<< HEAD
+}
+
+printUserResult();
+
+
+
+killSesion = () => {
+  alert('Bye');
+}
+
+buttonLogout.addEventListener('click', killSesion);
+=======
 }
 
 printUserResult(userReturn);
+>>>>>>> origin/master

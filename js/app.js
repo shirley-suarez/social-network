@@ -6,15 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
 let database = firebase.database();
 let buttonLogout =document.getElementById('logout');
 
-<<<<<<< HEAD
-
-
-let objDB={
-  users:[]
-=======
 let objDB={
   posts:[]
->>>>>>> origin/master
 }
 // console.log(objDB)
 var contador = new Date().getTime();

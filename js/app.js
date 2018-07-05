@@ -40,7 +40,7 @@ const mostrarPost = () => {
   //Leer datos en BD:
   database.ref('/users').on('value',(snapshot) => {
     let user= snapshot.val();
-    console.log(user);
+    // console.log(user);
     objDB.users = user;
     crearPostInDom(user);
   })
@@ -71,3 +71,23 @@ const crearPostInDom = (posts) => {
   });
   containerPost.innerHTML = plantillaFinal;
 }
+
+
+printUserResult = () => {
+  let printName = document.getElementById('nombre');
+  let printEmail = document.getElementById('correo');
+  let imageUser = document.getElementById('imagen-usuario')
+  let userReturn = JSON.parse(localStorage.getItem("resultado"));
+  let nameResult = userReturn.displayName;
+  let emailResult = userReturn.email;
+  let imageUserReturn = userReturn.photoURL  ;
+  console.log(userReturn);
+
+  printName.innerHTML = nameResult;
+  printEmail.innerHTML = emailResult;
+  imageUser.innerHTML = `<a id="imagen-usuario" href="#user"><img class="circle" src="${imageUserReturn}"></a>`
+
+
+}
+
+printUserResult();

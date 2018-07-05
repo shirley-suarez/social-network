@@ -12,15 +12,8 @@ crearCuenta: (name, email, pass, ) => {
   },
   ingresarAMuro : ()  => {
   location.href='../views/muro.html';
-  // const printName = document.getElementById('print-name');
-
-    console.log(window.location.pathname)
-  let userReturn = JSON.parse(localStorage.getItem("resultado"));
-  let nameResult = userReturn.displayName;
-  let emailResult = userReturn.email;
-  console.log(printName)
-  // printName.innerHTML = nameResult;
   }
+  
 };
 
 error = () => {

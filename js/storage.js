@@ -15,10 +15,10 @@ if (typeof(Storage) !== "undefined") {
 
 
 
-printUserNav = () => {
-  let returnUser = JSON.parse(localStorage.getItem("resultado"));
-  console.log(returnUser);
-}
+// printUserNav = () => {
+//   let returnUser = JSON.parse(localStorage.getItem("resultado"));
+//   console.log(returnUser);
+// }
 
 
-printUserNav();
+// printUserNav();

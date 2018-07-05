@@ -4,25 +4,30 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 let database = firebase.database();
+let buttonLogout =document.getElementById('logout');
 
-var contador = new Date().getTime();
-const objDB={
+
+
+let objDB={
   users:[]
 }
+// console.log(objDB)
+var contador = new Date().getTime();
 
 var formulario = document.getElementById("crear-post")
 
 const extraerDatosForm = (e) => {
   e.preventDefault();
+
   let date = `${new Date()}`;
-  console.log(date);
   const user =  { "id": contador,
                 "nombre" : document.getElementById("nombre").innerHTML,
                 "correo" : document.getElementById("correo").innerHTML,
                 "Fecha" : date,
                 "mensaje" : document.getElementById("mensaje").value
               }
-  console.log(user);
+  console.log(user);  
+  console.log(objDB.users)
   objDB.users.push(user)
   contador++;
   crearJsonNuevaEmpresa(objDB);
@@ -69,7 +74,7 @@ const crearPostInDom = (posts) => {
                         </div>
                       </div>`
   });
-  containerPost.innerHTML = plantillaFinal;
+  containerPost.insertAdjacentHTML("beforeend" ,plantillaFinal);
 }
 
 
@@ -86,8 +91,14 @@ printUserResult = () => {
   printName.innerHTML = nameResult;
   printEmail.innerHTML = emailResult;
   imageUser.innerHTML = `<a id="imagen-usuario" href="#user"><img class="circle" src="${imageUserReturn}"></a>`
-
-
 }
 
 printUserResult();
+
+
+
+killSesion = () => {
+  alert('Bye');
+}
+
+buttonLogout.addEventListener('click', killSesion);

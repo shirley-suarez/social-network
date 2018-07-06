@@ -9,7 +9,7 @@ let buttonLogout =document.getElementById('logout');
 let objDB={
   posts:[]
 }
-// console.log(objDB)
+
 var contador = new Date().getTime();
 
 let userReturn = JSON.parse(localStorage.getItem("resultado"));
@@ -42,7 +42,6 @@ const createObjPost = (userReturn) => {
 
 formulario.addEventListener("submit",() => {
   event.preventDefault();
-  console.log("HOLA");
   createObjPost(userReturn);
   }
 );
@@ -56,7 +55,6 @@ const mostrarPost = () => {
   //Leer datos en BD:
   database.ref('/posts').on('value',(snapshot) => {
     let user= snapshot.val();
-    console.log(user);
     objDB.posts = user;
     crearPostInDom(user);
   })
@@ -68,7 +66,6 @@ const crearPostInDom = (posts) => {
  // let containerPost= document.getElementById('container-posts').value = " ";
 
   var plantillaFinal = "";
-  // let plantilla = ""
   let containerPost= document.getElementById('container-posts');
   posts.forEach(function (post) {
   plantillaFinal += `<div class="row">
@@ -105,6 +102,7 @@ printUserResult = (userReturn) => {
   imageUser.innerHTML = `<a id="imagen-usuario" href="#user"><img class="circle" src="${imageUserReturn}"></a>`
 }
 
+printUserResult(userReturn);
 
 // killSesion = () => {
 //   alert('Bye');

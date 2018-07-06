@@ -13,9 +13,9 @@ crearCuenta: (name, email, pass, ) => {
   ingresarAMuro : ()  => {
   location.href='../views/muro.html';
   }
-  
+
 };
 
 error = () => {
   alert("rellena todos los campos");
-}
+};

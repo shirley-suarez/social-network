@@ -48,13 +48,6 @@ const auth = provider => {
   });
 }
 
-const logout = () => {
-  firebase.auth().signOut().then(function() {
-    // Sign-out successful.
-  }).catch(function(error) {
-    // An error happened.
-  });
-}
 
 showNewsFeed = (user) => {
   location.href='../views/muro.html';
@@ -62,4 +55,16 @@ showNewsFeed = (user) => {
   localStorage.setItem("resultado",user);
   // para recuperar el objeto
   // let regreso =  JSON.parse(localStorage.getItem("resultado"));
+}
+
+
+const logout = () => {
+  console.log('Bye', firebase);
+  location.href = '../index.html';
+  localStorage.clear();
+  // firebase.auth().signOut().then(function() {
+  //   console.log("salio")
+  // }).catch(function(error) {
+  //   console.log("ocurrio un error ")
+  // });
 }

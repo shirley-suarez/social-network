@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 let database = firebase.database();
-let buttonLogout =document.getElementById('logout');
 
 let objDB={
   posts:[]
@@ -18,6 +17,8 @@ var contador = new Date().getTime();
 var formulario = document.getElementById("crear-post")
 
 const createObjPost = (userReturn) => {
+  // para cuando ropas la bdd
+  // posts:[]
   console.log(userReturn);
   let date = `${new Date()}`;
   console.log(date);
@@ -37,7 +38,6 @@ const createObjPost = (userReturn) => {
   contador++;
   crearJsonNuevoPost(objDB);
   document.getElementById("mensaje").value = " ";
-
 }
 
 formulario.addEventListener("submit",() => {
@@ -104,12 +104,38 @@ printUserResult = (userReturn) => {
 
 printUserResult(userReturn);
 
-// killSesion = () => {
-//   alert('Bye');
-// }
 
-// buttonLogout.addEventListener('click', killSesion);
-// }
+// =================================logout
+let buttonLogout =document.getElementById('logout');
+buttonLogout.addEventListener('click', logout);
+// =================================logout
 
-printUserResult(userReturn);
-  
+
+
+
+// --------------------------modal
+let modalButton = document.getElementById('modal');
+
+runModal =() => {
+  let paraModal = document.getElementById('para-modal');
+  console.log("hola");
+  let newModal =`<div id="modal1" class="modal")>
+  <div class="modal-content">
+  <a id="imagen-usuario" href="#user"><img class="circle" src="${userReturn.photoURL}" width="50%"></a>
+    <h5>${userReturn.displayName}</h5>
+    <p>  ${userReturn.email}</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+  </div>
+</div>`;
+paraModal.innerHTML = newModal;
+$('.modal').modal();
+
+}
+
+modalButton.addEventListener('click', runModal);
+
+
+
+// --------------------------modal

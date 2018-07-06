@@ -1,10 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.sidenav');
-  var instances = M.Sidenav.init(elems);
+  const elems = document.querySelectorAll('.sidenav');
+  const instances = M.Sidenav.init(elems);
+
+  eventValidationTextArea()
+  mostrarPost();
+  printUserResult(userReturn);
+
 });
 
 let database = firebase.database();
-let buttonLogout =document.getElementById('logout');
 
 let objDB={
   posts:[]
@@ -18,9 +22,10 @@ var contador = new Date().getTime();
 var formulario = document.getElementById("crear-post")
 
 const createObjPost = (userReturn) => {
-  console.log(userReturn);
+  // para cuando ropas la bdd
+  // posts:[]
+  // console.log(userReturn);
   let date = `${new Date()}`;
-  console.log(date);
   const user =  { "idPerfil": userReturn.uid,
                 "nombre" : userReturn.displayName,
                 "correo" : userReturn.email,
@@ -32,12 +37,12 @@ const createObjPost = (userReturn) => {
                   "textMensaje" : document.getElementById("mensaje").value
                 }
               }
-  console.log(user);
+  // console.log(user);
   objDB.posts.unshift(user)
   contador++;
   crearJsonNuevoPost(objDB);
   document.getElementById("mensaje").value = " ";
-
+  eventValidationTextArea();
 }
 
 formulario.addEventListener("submit",() => {
@@ -60,11 +65,9 @@ const mostrarPost = () => {
   })
 }
 
-mostrarPost();
+
 
 const crearPostInDom = (posts) => {
- // let containerPost= document.getElementById('container-posts').value = " ";
-
   var plantillaFinal = "";
   let containerPost= document.getElementById('container-posts');
   posts.forEach(function (post) {
@@ -77,8 +80,12 @@ const crearPostInDom = (posts) => {
                             <p class="fz-16">${post.mensaje.textMensaje}</p>
                             </div>
                             <div class="card-action">
-                              <a href="#">Editar</a>
-                              <a href="#" data-id-post="${post.mensaje.idPost}">Eliminar</a>
+                              <a href="#" data-editar="${post.mensaje.idPost}">Editar</a>
+                              <a href="#" data-eliminar="${post.mensaje.idPost}">Eliminar</a>
+                              <a href="#" class="right" data-like="${post.mensaje.idPost}">
+                                <i class="material-icons">&#9825;</i>
+                                <span>${post.mensaje.like}<span>
+                              </a>
                             </div>
                           </div>
                         </div>
@@ -88,25 +95,71 @@ const crearPostInDom = (posts) => {
   containerPost.innerHTML = plantillaFinal;
 }
 
+const eventValidationTextArea = () => {
+  const textAreaMensaje = document.getElementById('mensaje');
+  const btnPublicar = document.getElementById('btn-publicar');
+  btnPublicar.setAttribute("disabled","");
+  textAreaMensaje.addEventListener("keyup", (event) => {
+    if (window.social.validarDatosMensaje(event)) {
+      btnPublicar.removeAttribute("disabled");
+    } else {
+      btnPublicar.setAttribute("disabled",true);
+    }
+  });
+
+}
 
 printUserResult = (userReturn) => {
-  let printName = document.getElementById('nombre');
+  let printName = document.querySelectorAll('.name');
   let printEmail = document.getElementById('correo');
-  let imageUser = document.getElementById('imagen-usuario')
+  // let imageUser = document.getElementById('imagen-usuario');
+  let imageUser = document.querySelectorAll('.imagen-usuario');
   let nameResult = userReturn.displayName;
   let emailResult = userReturn.email;
   let imageUserReturn = userReturn.photoURL;
 
-  printName.innerHTML = nameResult;
+  for (var i = 0; i < printName.length; i++) {
+    printName[i].innerHTML = nameResult;
+    imageUser[i].src = imageUserReturn;
+  }
   printEmail.innerHTML = emailResult;
-  imageUser.innerHTML = `<a id="imagen-usuario" href="#user"><img class="circle" src="${imageUserReturn}"></a>`
 }
 
-printUserResult(userReturn);
 
-// killSesion = () => {
-//   alert('Bye');
-// }
+// =================================logout
+let buttonLogout = document.getElementById('logout');
+let btnsLogOut = document.querySelectorAll('.log-out');
+for (var i = 0; i < btnsLogOut.length; i++) {
+  btnsLogOut[i].addEventListener('click', logout)
+}
+// buttonLogout.addEventListener('click', logout);
+// =================================logout
 
-// buttonLogout.addEventListener('click', killSesion);
-// }
+
+
+
+// --------------------------modal
+let btnsModal = document.querySelectorAll(".action-modal");
+// let modalButton = document.getElementById('modal');
+runModal =() => {
+  let paraModal = document.getElementById('para-modal');
+  console.log("hola");
+  let newModal =`<div id="modal1" class="modal">
+  <div class="modal-content">
+  <a id="imagen-usuario" href="#user"><img class="circle" src="${userReturn.photoURL}" width="50%"></a>
+    <h5>${userReturn.displayName}</h5>
+    <p>  ${userReturn.email}</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+  </div>
+</div>`;
+paraModal.innerHTML = newModal;
+$('.modal').modal();
+
+}
+
+for (var i = 0; i < btnsModal.length; i++) {
+  btnsModal[i].addEventListener('click', runModal);
+}
+// --------------------------modal

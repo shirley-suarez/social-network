@@ -11,20 +11,24 @@
   <title>Red Social</title>
 </head>
   <body>
-    <nav class="nav-extended background-black">
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Logo</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
-          <i class="material-icons">menu</i>
-          </a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-          <li><a href="#!">Second Link</a></li>
-          <li><a class="subheader">Subheader</a></li>
-          <li><a class="waves-effect" href="#!">log out</a></li>
-        </ul>
-      </div>
-    </nav>
+    <div class="navbar-fixed">
+      <nav class="nav-extended background-black">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">Logo</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+            <i class="material-icons">menu</i>
+            </a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <!-- <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li> -->
+            <li><div><img  class="imagen-usuario imagen-perfil circle" src="https://pbs.twimg.com/profile_images/883322378318729216/z2xz6wn8_400x400.jpg"></div></li>
+            <li><span class="white-text name"></li>
+            <li><a class="action-modal modal-trigger" href="#modal1">Mi perfil</a></li>
+            <!-- <li><a class="subheader">Subheader</a></li> -->
+            <li class="log-out"><a class="waves-effect" href="#!">log out</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
 
     <ul id="mobile-demo" class="sidenav">
       <li>
@@ -32,27 +36,37 @@
           <div class="background">
             <img src="https://diariopresenterm.blob.core.windows.net.optimalcdn.com/images/2017/07/28/prpr_38_biker01-focus-0-0-1140-570.jpg">
           </div>
-          <a id="imagen-usuario" href="#user"><img class="circle" src="https://pbs.twimg.com/profile_images/883322378318729216/z2xz6wn8_400x400.jpg"></a>
-          <a href="#name"><span class="white-text name" id="nombre">Jamie Doe</span></a>
-          <a href="#email"><span class="white-text email" id="correo">jdandturk@gmail.com</span></a>
+          <a href="#user"><img id="imagen-usuario" class="imagen-usuario circle" src="https://pbs.twimg.com/profile_images/883322378318729216/z2xz6wn8_400x400.jpg"></a>
+          <a href="#name"><span class="white-text name" id="nombre"></span></a>
+          <a href="#email"><span class="white-text email" id="correo"></span></a>
         </div>
       </li>
-      <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-      <li><a id="modal" class="waves-effect waves-light modal-trigger" href="#modal1"> Mi perfil</a></li>
+      <!-- <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li> -->
+      <li><a id="action-modal" class="action-modal waves-effect waves-light modal-trigger" href="#modal1"> Mi perfil</a></li>
       <li><div class="divider"></div></li>
-      <li><a class="subheader">Subheader</a></li>
-      <li id="logout" ><a class="waves-effect waves-light">log out</a></li>
+      <!-- <li><a class="subheader">Subheader</a></li> -->
+      <li class="log-out" id="logout"><a class="waves-effect waves-light">log out</a></li>
     </ul>
-    <div class="row">
+    <div class="row text-area">
       <form id="crear-post" class="col s12" width= "10%">
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">mode_edit</i>
-            <textarea id="mensaje" class="materialize-textarea"></textarea>
+            <textarea id="mensaje" class="materialize-textarea" data-length="140"></textarea>
             <label for="mensaje">Mensaje</label>
           </div>
+          <!-- <div class="file-field input-field">
+            <div class="btn">
+              <span><i class="material-icons">add_a_photo</i></span>
+              <input type="file">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text">
+            </div>
+          </div> -->
+
           <div class="col s6">
-            <button class="btn waves-effect waves-light background-black" type="submit" name="action" >Publicar
+            <button id="btn-publicar" class="btn waves-effect waves-light background-black" type="submit" name="action" disabled>Publicar
               <i class="material-icons right">send</i>
             </button>
           </div>
@@ -84,6 +98,6 @@
     <!-- <script src="../js/data.js"></script> -->
     <script src="../js/main.js"></script>
     <script src="../js/app.js"></script>
-    
+
   </body>
 </html>

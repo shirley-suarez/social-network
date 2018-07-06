@@ -5,6 +5,7 @@ const inputPassword = document.getElementById('icon_password')
 const inputPassword2 = document.getElementById('icon_password-2');
 const modalBox = document.getElementById('modal1');
 
+
 // botons
 const google = document.getElementById('google');
 const login = document.getElementById('login');

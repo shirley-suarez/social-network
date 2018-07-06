@@ -10,10 +10,19 @@ crearCuenta: (name, email, pass, ) => {
       error();
     }
   },
-  ingresarAMuro : ()  => {
-  location.href='../views/muro.html';
-  }
 
+  ingresarAMuro : ()  => {
+    location.href='../views/muro.html';
+  },
+
+  validarDatosMensaje : (event) => {
+    const targetEvent = event.target.value.trim();
+  	if (targetEvent.length > 0 && targetEvent.length < 141 ) {
+      return true;
+  	} else {
+      return false;
+    }
+  }
 };
 
 error = () => {
